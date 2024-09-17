@@ -1,0 +1,59 @@
+---
+title: "Test Presentation"
+author: "Murali Sethuraman"
+format: revealjs
+---
+
+## Test Slide
+
+This is some test content
+
+Hello
+
+Some more content
+
+## Some math
+
+This slide has some math. Consider the SEM
+
+$$ x_i = f_i(x_{\text{Pa}(i)}) + e_i, \quad i = 1, \ldots, d. $$
+
+Where $e_i = \varepsilon_i + z_i$, and $e_i$'s are independent of each other and $z_i$'s are the latent confounders. 
+
+## Some latex figures
+
+This is a latex Tikz figure
+
+```{r, engine = 'tikz'} 
+\begin{tikzpicture}[scale=0.5]
+ \node (a) [circle, draw=black, minimum width=0.5cm] at (0,0) {$a$};
+  \node (b) [circle, draw=black, minimum width=0.5cm] at (2,0) {$b$};
+
+  \draw [->] (a) -- (b);
+\end{tikzpicture}
+```
+
+## Another slide with figures
+
+```{r include=FALSE}
+# Necessary for using dvisvgm on macOS
+# See https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/
+Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.53.3/lib/libgs.dylib.9.53")
+font_opts <- list(dvisvgm.opts = "--font-format=woff")
+```
+
+```{tikz complete-pooling, engine.opts=font_opts}
+#| echo: false
+#| fig-cap: "Complete pooling"
+#| fig-align: center
+#| fig-ext: svg
+#| out-width: 50%
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\begin{tikzpicture}[{every node/.append style}=draw]
+ \node (a) [circle, draw=black, minimum width=0.5cm] at (0,0) {$a$};
+  \node (b) [circle, draw=black, minimum width=0.5cm] at (2,0) {$b$};
+
+  \draw [->] (a) -- (b);
+\end{tikzpicture}
+```
